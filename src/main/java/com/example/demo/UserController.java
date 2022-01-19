@@ -26,7 +26,7 @@ String getUser(){
 	 }
 	@DeleteMapping("/user")
 	void deleteUser()
-	{
+	{//comments
 		System.out.println("hi");
 		
 	}
