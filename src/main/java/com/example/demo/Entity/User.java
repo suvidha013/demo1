@@ -1,10 +1,13 @@
 package com.example.demo.Entity;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Range;
@@ -18,6 +21,17 @@ public class User {
 	
 	@Range(min = 0)
 	private Integer age;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="address_id", referencedColumnName = "id")
+	Address address;
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public Integer getAge() {
 		return age;
 	}
